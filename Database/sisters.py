@@ -28,3 +28,11 @@ async def are_sisters(s1_id: int, s2_id: int):
         if s2_id in list:
             return True
     return False
+
+async def get_sisters(s1_id):
+    x = await sistersdb.find_one({"s1_id": s1_id})
+    if not x:
+        return []
+    else:
+        list = x["sisters"]
+        return list

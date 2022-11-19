@@ -10,7 +10,8 @@ async def add_sister(s1_id: int, s2_id: int):
             list.append(s2_id)
             return await sistersdb.update_one({"s1_id": s1_id}, {"$set": {"sisters": list}}, upsert=True)
     else:
-        await sistersdb.insert_one({"s1_id": s1_id}, {"$set": {"sisters": [s2_id]}})
+        list = [s2_id]
+        await sistersdb.update_one({"s1_id": s1_id}, {"$set": {"sisters": [s2_id]}})
 
 
 async def del_sister(s1_id: int, s2_id: int):

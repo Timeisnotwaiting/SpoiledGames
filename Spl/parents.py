@@ -63,6 +63,14 @@ async def acc(_, q):
     await add_kid(p_id, k_id)
     return await q.edit_message_text("{} accepted {} as {} {}".format(p_fn, k_fn, "his" if parent_g=="male" else "her", "Son" if kid_g=="male" else "Daughter"))
 
+@Client.on_callback_query(filters.regex("parent_reject"))
+async def rej(_, m):
+    global p_id
+    if q.from_user.id != p_id:
+        return await q.answer("This is not for you baka !", show_alert=True)
+    return await q.message.delete()
+
+
 @Client.on_message(filters.command("leaveparent", ["/", ".", "?", "!"]))
 async def leaveparent(_, m):
     k_id = m.from_user.id

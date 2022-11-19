@@ -18,7 +18,7 @@ s2_g = None
 s1_fn = None
 s2_fn = None
 
-@Client.on_message(filters.command("sibling"))
+@Client.on_message(filters.command("sibling", ["/", ".", "!", "?"]))
 async def sibling(_, m):
     global s1_id
     global s2_id
@@ -76,7 +76,7 @@ async def rej(_, m):
         return await q.answer("This is not for you baka !", show_alert=True)
     return await q.message.delete()
 
-@Client.on_message(filters.command("leavesibling"))
+@Client.on_message(filters.command("leavesibling", ["/", ".", "?", "!"]))
 async def leave(_, m):
     s1_id = m.from_user.id
     s2_id = await get_id(_, m)

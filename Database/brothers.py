@@ -21,7 +21,7 @@ async def del_brother(b1_id: int, b2_id: int):
             list.remove(b2_id)
             await brothersdb.delete_one({"b1_id": b1_id}, {"$set": {"brothers": list}}, upsert=True)
 
-async def are_brothers(b1_id: int, b2_id: int):
+async def is_brother(b1_id: int, b2_id: int):
     x = await brothersdb.find_one({"b1_id": b1_id})
     if x:
         list = x["brothers"]

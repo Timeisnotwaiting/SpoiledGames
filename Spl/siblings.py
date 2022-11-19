@@ -7,8 +7,10 @@ from pyrogram.types import InlineKeyboardButton as IKB, InlineKeyboardMarkup as 
 
 markup = IKM(
          [
+         [
          IKB(" ✅ ", callback_data="sibling_accept"),
          IKB(" ❌ ", callback_data="sibling_reject")
+         ]
          ]
          )
 

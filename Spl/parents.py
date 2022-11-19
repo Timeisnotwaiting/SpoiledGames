@@ -71,6 +71,7 @@ async def rej(_, m):
     global p_id
     if q.from_user.id != p_id:
         return await q.answer("This is not for you baka !", show_alert=True)
+    await q.answer()
     return await q.message.delete()
 
 

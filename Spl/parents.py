@@ -41,8 +41,8 @@ async def parents_add(_, m):
         return await m.reply("Maximum number of parents reached !")
     markup = IKM(
              [
-             IKB(" ✅ ", callback_data=parent_accept),
-             IKB(" ❌ ", callback_data=parent_reject)
+             IKB(" ✅ ", callback_data="parent_accept"),
+             IKB(" ❌ ", callback_data="parent_reject")
              ]
              )
     k_fn = m.from_user.first_name

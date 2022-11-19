@@ -19,3 +19,20 @@ async def parents_add(_, m):
     x = await is_parent(k_id, p_id)
     if x:
         return await m.reply("{} is already your parent !".format("She" if parent_g == "female" else "He"))
+    kids = await get_kids(p_id)
+    if len(kids) == 5:
+        return await m.reply("Maximum number of kids reached !")
+    parents = await get_parents(k_id)
+    if len(parents) == 2:
+        return await m.reply("Maximum number of parents reached !")
+    markup = IKM(
+             [
+             IKB(" ✅ ", callback_data=parent_accept),
+             IKB(" ❌ ", callback_data=parent_reject)
+             ]
+             )
+    k_fn = m.from_user.first_name
+    p_fn = (await _.get_users(p_id)).first_name
+    await _.send_message(m.chat.id, "{} wants {} as {} {}".format(k_fn, p_fn, "his" if kid_g == "male" else "her", "Dad" if parent_g == "male" else "Mom"), reply_markup=markup)
+
+    

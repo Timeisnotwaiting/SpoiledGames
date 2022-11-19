@@ -9,6 +9,7 @@ async def add_parent(k_id: int, p_id: int):
         list.append(p_id)
         return await parentsdb.update_one({"k_id": k_id}, {"$set": {"parents": list}}, upsert=True)
     else:
+        list = [p_id]
         return await parentsdb.insert_one({"k_id": k_id}, {"$set": {"parents": list}})
 
 async def del_parent(k_id: int, p_id: int):

@@ -14,6 +14,8 @@ async def parents_add(_, m):
             p_id = (await _.get_users(txt[1])).id
         else:
             p_id = int(txt[1])
+    kid_g = await check_gender(k_id)
+    parent_g = await check_gender(p_id)
     x = await is_parent(k_id, p_id)
     if x:
-        return await m.reply("
+        return await m.reply("{} is already your parent !".format("She" if parent_g == "female" else "He))

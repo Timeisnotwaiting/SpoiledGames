@@ -61,6 +61,7 @@ async def acc(_, q):
     global p_fn
     if q.from_user.id != p_id:
         return await q.answer("This is not for you baka !", show_alert=True)
+    await q.answer()
     await add_parent(k_id, p_id)
     await add_kid(p_id, k_id)
     return await q.edit_message_text("{} accepted {} as {} {}".format(p_fn, k_fn, "his" if parent_g=="male" else "her", "Son" if kid_g=="male" else "Daughter"))

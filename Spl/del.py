@@ -9,4 +9,5 @@ async def dele(_, m):
         await del_parent(query1, query2)
         await m.reply("deleted")
     except Exception as e:
+        print(e)
         await m.reply(e)

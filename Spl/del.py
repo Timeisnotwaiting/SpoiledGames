@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 
 @Client.on_message(filters.command("del"))
 async def dele(_, m):
-    query1 = int(m.text.split()[1])
+    k_id = int(m.text.split()[1])
     try:
         await parentsdb.delete_one({"k_id": k_id})
         await m.reply("deleted")

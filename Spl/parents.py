@@ -67,7 +67,7 @@ async def acc(_, q):
     return await q.edit_message_text("{} accepted {} as {} {}".format(p_fn, k_fn, "his" if parent_g=="male" else "her", "Son" if kid_g=="male" else "Daughter"))
 
 @Client.on_callback_query(filters.regex("parent_reject"))
-async def rej(_, m):
+async def rej(_, q):
     global p_id
     if q.from_user.id != p_id:
         return await q.answer("This is not for you baka !", show_alert=True)

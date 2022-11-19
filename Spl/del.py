@@ -1,4 +1,4 @@
-from Database.parents del_parent
+from Database.parents import del_parent
 from pyrogram import Client, filters
 
 @Client.on_message(filters.command("del"))

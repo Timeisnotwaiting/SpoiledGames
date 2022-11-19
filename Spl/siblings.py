@@ -74,7 +74,7 @@ async def sibling_cbq(_, q):
     await q.edit_message_text("{} accepted {} as {} {} !".format(s2_fn, s1_fn, "his" if s2_g=="male" else "her", "sister" if s1_g=="female" else "brother"))
 
 @Client.on_callback_query(filters.regex("sibling_reject"))
-async def rej(_, m):
+async def rej(_, q):
     global s2_id
     if q.from_user.id != s2_id:
         return await q.answer("This is not for you baka !", show_alert=True)

@@ -2,6 +2,7 @@ from Database.parents import *
 from Database.kids import *
 from Database.genders import *
 from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton as IKB, InlineKeyboardMarkup as IKM
 
 k_id = None
 p_id = None

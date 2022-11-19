@@ -47,4 +47,4 @@ async def sibling_cbq(_, q):
             await add_sister(s2_id, s1_id)
         else:
             await add_brother(s2_id, s1_id)
-    await q.edit_message_text("{} accepted {} as {} {} !.format(s2_fn, s1_fn, "his" if s2_g=="male" else "her", "sister" if s1_g=="female" else "brother"))
+    await q.edit_message_text("{} accepted {} as {} {} !".format(s2_fn, s1_fn, "his" if s2_g=="male" else "her", "sister" if s1_g=="female" else "brother"))
